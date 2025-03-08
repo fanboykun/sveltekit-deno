@@ -1,11 +1,14 @@
 {
   "tasks": {
-    "dev": "deno run -A --allow-env --allow-read --allow-net --node-modules-dir npm:vite dev",
+    "dev": "deno run -A npm:vite dev",
     "build": "deno run -A --node-modules-dir npm:vite build",
     "preview": "deno run -A --node-modules-dir npm:vite preview",
     "lint": "deno lint",
-    "fmt": "deno fmt"
+    "fmt": "deno fmt",
+    "prisma": "deno run -A --node-modules-dir npm:prisma",
+    "add:component": "deno run -A --node-modules-dir npm:shadcn-svelte@next add"
   },
+  "nodeModulesDir": "auto",
   "compilerOptions": {
     "checkJs": true,
     "allowJs": true,
@@ -38,7 +41,8 @@
         "no-sync-fn-in-async-fn",
         "no-throw-literal",
         "no-useless-rename",
-        "prefer-ascii"
+        "prefer-ascii",
+        "verbatim-module-syntax"
       ],
       "exclude": [
         "no-sloppy-imports"
@@ -49,7 +53,8 @@
       "./dist",
       "./build",
       "./output",
-      "./node_modules"
+      "./node_modules",
+      "./src/lib/components/ui"
     ]
   },
   "fmt": {
